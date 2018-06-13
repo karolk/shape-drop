@@ -1,0 +1,6 @@
+.Desk {
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}

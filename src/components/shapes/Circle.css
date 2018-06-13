@@ -1,0 +1,9 @@
+.Circle {
+    margin: 1rem 0;
+}
+
+.Circle circle {
+    stroke: black;
+    stroke-width: 1;
+    fill: red;
+}

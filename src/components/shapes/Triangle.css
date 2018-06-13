@@ -1,0 +1,9 @@
+.Triangle {
+    margin: 1rem 0;
+}
+
+.Triangle polygon {
+    stroke: black;
+    stroke-width: 1;
+    fill: red;
+}
