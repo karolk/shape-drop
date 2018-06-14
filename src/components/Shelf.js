@@ -9,6 +9,7 @@ class Shelf extends PureComponent {
 
   handleDrop = e => {
     e.preventDefault();
+    // TODO change source of truth to be currently moving shape
     const type = e.dataTransfer.getData("text/plain");
     this.props.handleShapeMove({ type });
   };
