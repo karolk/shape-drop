@@ -23,16 +23,19 @@ const getShelfWeight = (shelf, shapes) => {
   if (shelfType) {
     const shapeDetails = shapes.filter(shape => shape.type === shelfType)[0];
     if (shapeDetails) {
-      // Currently all are in kg
-      return shelf.items.length * shapeDetails.measurement.value;
+      return {
+        weight: shelf.items.length * shapeDetails.measurement.value,
+        weightUnit: shapeDetails.measurement.unit
+      };
     }
   }
-  return 0;
+  return {
+    weight: 0
+  };
 };
 
-const mapStateToProps = ({ shapes }, { shelf }) => ({
-  weight: getShelfWeight(shelf, shapes)
-});
+const mapStateToProps = ({ shapes }, { shelf }) =>
+  getShelfWeight(shelf, shapes);
 
 const mapDispatchToProps = (dispatch, { shelf }) => ({
   handleShapeMove: shape => {

@@ -14,7 +14,7 @@ class Shelf extends PureComponent {
   };
 
   render() {
-    const { weight, shelf } = this.props;
+    const { weight, weightUnit, shelf } = this.props;
     const { items } = shelf;
     return (
       <div className="Shelf">
@@ -27,7 +27,9 @@ class Shelf extends PureComponent {
             <Shape shape={shape.type} key={index} />
           ))}
         </div>
-        <p>{weight}</p>
+        <p>
+          Total weight: {weight.toFixed(2)} {weightUnit}
+        </p>
       </div>
     );
   }
