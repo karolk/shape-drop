@@ -1,10 +1,10 @@
-.Tray {    
-    width: 15vw;
-    padding: 1rem;
-    min-width: 100px;
-    max-width: 150px;
+.Tray {
+  width: 15vw;
+  padding: 1rem;
+  min-width: 100px;
+  max-width: 150px;
 }
 
 .Tray .Shape {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }

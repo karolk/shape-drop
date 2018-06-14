@@ -1,19 +1,22 @@
-.Shelf {    
-    width: 250px;
-    height: 250px;
-    max-width: 50%;
-    padding: 1rem;
-    margin: 1rem;
-    border: 3px dashed orange;
-    display: flex;
-    flex-wrap: wrap;
+.Shelf {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.Shelf-shapes {
+  width: 250px;
+  height: 250px;
+  max-width: 50%;
+  border: 3px dashed orange;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Shelf .Shape {
-    width: 50%;
+  width: 50%;
 }
 
 .Shelf .Shape .shape-root {
-    fill: green;
-    background: green;
+  fill: green;
+  background: green;
 }
