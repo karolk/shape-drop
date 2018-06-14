@@ -1,10 +1,7 @@
 import { connect } from "react-redux";
 import Shelf from "../components/Shelf";
 import { MAX_SHAPES_PER_SHELF } from "../config";
-import {
-  createShapeMoveSuccess,
-  createShapeMoveFailure
-} from "../actions/desk";
+import { createShapeMoveSuccess } from "../actions/desk";
 
 const getShelfType = shelf => {
   const { items } = shelf;
@@ -12,7 +9,7 @@ const getShelfType = shelf => {
   return hasShapes ? items[0].type : null;
 };
 
-const canAddShape = (shelf, shape) => {
+const canAcceptShape = (shelf, shape) => {
   const shelfType = getShelfType(shelf);
   const isNewShapeAcceptable = shelfType ? shelfType === shape.type : true;
   return shelf.items.length < MAX_SHAPES_PER_SHELF && isNewShapeAcceptable;
@@ -34,16 +31,18 @@ const getShelfWeight = (shelf, shapes) => {
   };
 };
 
-const mapStateToProps = ({ shapes }, { shelf }) =>
-  getShelfWeight(shelf, shapes);
+const mapStateToProps = ({ shapes, app }, { shelf }) => ({
+  ...getShelfWeight(shelf, shapes),
+  canAcceptMovingShape: app.movingShapeType
+    ? canAcceptShape(shelf, { type: app.movingShapeType })
+    : true
+});
 
 const mapDispatchToProps = (dispatch, { shelf }) => ({
   handleShapeMove: shape => {
-    dispatch(
-      canAddShape(shelf, shape)
-        ? createShapeMoveSuccess(shelf, shape)
-        : createShapeMoveFailure()
-    );
+    if (canAcceptShape(shelf, shape)) {
+      dispatch(createShapeMoveSuccess(shelf, shape));
+    }
   }
 });
 

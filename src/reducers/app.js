@@ -1,8 +1,4 @@
-import {
-  SHAPE_MOVE_START,
-  SHAPE_MOVE_SUCCESS,
-  SHAPE_MOVE_FAILURE
-} from "../actions/types";
+import { SHAPE_MOVE_START, SHAPE_MOVE_END } from "../actions/types";
 
 export const defaultState = {
   movingShapeType: null
@@ -15,8 +11,7 @@ const reducer = (state = defaultState, action) => {
         movingShapeType: action.shapeType
       };
 
-    case SHAPE_MOVE_SUCCESS:
-    case SHAPE_MOVE_FAILURE:
+    case SHAPE_MOVE_END:
       return {
         movingShapeType: null
       };

@@ -11,6 +11,10 @@
   flex-wrap: wrap;
 }
 
+.Shelf-closed {
+  opacity: 0.3;
+}
+
 .Shelf .Shape {
   width: 50%;
 }

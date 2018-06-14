@@ -4,6 +4,11 @@ import { getComponentFromType } from "./shapes";
 class Shape extends PureComponent {
   handleDragStart = event => {
     event.dataTransfer.setData("text/plain", this.props.shape);
+    this.props.createShapeMoveStart(this.props.shape);
+  };
+
+  handleDragEnd = event => {
+    this.props.createShapeMoveEnd();
   };
 
   render() {
@@ -13,6 +18,7 @@ class Shape extends PureComponent {
       <div
         draggable={draggable}
         onDragStart={this.handleDragStart}
+        onDragEnd={this.handleDragEnd}
         className="Shape"
       >
         {Component ? <Component shape={shape} /> : null}

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import Shape from "./Shape";
+import Shape from "../containers/Shape";
 import "./Tray.css";
 
 class Tray extends PureComponent {

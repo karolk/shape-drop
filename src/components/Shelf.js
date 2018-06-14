@@ -14,10 +14,14 @@ class Shelf extends PureComponent {
   };
 
   render() {
-    const { weight, weightUnit, shelf } = this.props;
+    const { weight, weightUnit, shelf, canAcceptMovingShape } = this.props;
     const { items } = shelf;
+    const className = [
+      "Shelf",
+      canAcceptMovingShape ? "" : "Shelf-closed"
+    ].join(" ");
     return (
-      <div className="Shelf">
+      <div className={className}>
         <div
           className="Shelf-shapes"
           onDragOver={this.handleDragOver}

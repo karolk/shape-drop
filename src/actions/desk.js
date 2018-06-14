@@ -1,4 +1,9 @@
-import { SHAPE_MOVE_SUCCESS, SHAPE_MOVE_FAILURE } from "./types";
+import { SHAPE_MOVE_START, SHAPE_MOVE_SUCCESS, SHAPE_MOVE_END } from "./types";
+
+export const createShapeMoveStart = shapeType => ({
+  type: SHAPE_MOVE_START,
+  shapeType
+});
 
 export const createShapeMoveSuccess = ({ id }, shape) => ({
   type: SHAPE_MOVE_SUCCESS,
@@ -6,6 +11,12 @@ export const createShapeMoveSuccess = ({ id }, shape) => ({
   id
 });
 
-export const createShapeMoveFailure = () => ({
-  type: SHAPE_MOVE_FAILURE
+export const createShapeMoveEnd = () => ({
+  type: SHAPE_MOVE_END
 });
+
+export default {
+  createShapeMoveStart,
+  createShapeMoveSuccess,
+  createShapeMoveEnd
+};
