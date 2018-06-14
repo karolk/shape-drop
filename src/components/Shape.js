@@ -7,12 +7,13 @@ class Shape extends PureComponent {
     }
 
     render() {
-        const { shape } = this.props
+        const { shape, draggable } = this.props
         const Component = getComponentFromType(shape)
         return (
             <div
-                draggable
+                draggable={draggable}
                 onDragStart={this.handleDragStart}
+                className="Shape"
             >
                 {Component ? <Component shape={shape} /> : null}
             </div>);

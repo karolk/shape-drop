@@ -1,7 +1,5 @@
 import {
-    SHAPE_MOVE_START,
     SHAPE_MOVE_SUCCESS,
-    SHAPE_MOVE_FAILURE
 } from '../actions/types';
 
 export const defaultState = {
