@@ -6,7 +6,6 @@
 .Shelf-shapes {
   width: 250px;
   height: 250px;
-  max-width: 50%;
   border: 3px dashed orange;
   display: flex;
   flex-wrap: wrap;
